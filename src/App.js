@@ -77,8 +77,10 @@ function App() {
   return (
     <div className="App">
       <div className="flex-container">
-        <section className="display">{result}</section>
-        <section>{showCurrentEquation()}</section>
+        <section className="display">
+          {result}
+          <div className="equation">{showCurrentEquation()}</div>
+        </section>
         <div className="row1">
           <Button text={"AC"} onClick={() => updateEquation("AC")} />
           <Button text={"+/-"} onClick={() => updateEquation("+/-")} />
@@ -137,17 +139,21 @@ function App() {
             text={"3"}
             onClick={() => updateEquation({ type: "number", value: "3" })}
           />
-          <Button
-            text={"+"}
-            onClick={() => updateEquation({ type: "operation", value: "+" })}
-          />
+          <div className="plus">
+            <Button
+              text={"+"}
+              onClick={() => updateEquation({ type: "operation", value: "+" })}
+            />
+          </div>
         </div>
         <div className="row5">
           <Button
+            className="zero"
             style={{ width: "900px" }}
             text={"0"}
             onClick={() => updateEquation({ type: "number", value: "0" })}
           />
+
           <Button text={"."} />
           <Button text={"="} onClick={calculateResult} />
         </div>
